@@ -1,0 +1,42 @@
+﻿@page
+@model PS6.Pages.ShowCategoryModel
+@{
+}
+
+<h1>Kategorie:</h1>
+<div class="row col-sm-12">
+    <a asp-page="AddCategory" class="btn btn-primary btn-large">Dodaj</a>
+</div>
+<br />
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => Model.CategoryList[0].id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => Model.CategoryList[0].shortName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => Model.CategoryList[0].longName)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var p in Model.CategoryList)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(m => p.id)</th>
+                <td>@Html.DisplayFor(m => p.shortName)</td>
+                <td>@Html.DisplayFor(m => p.longName)</td>
+                <td>
+                    <a asp-page="EditCategory" asp-route-id=@p.id>Edytuj</a> |
+                    <a asp-page="DeleteCategory" asp-route-id=@p.id>Kasuj</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

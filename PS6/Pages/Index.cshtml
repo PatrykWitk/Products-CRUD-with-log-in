@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{
+}
+
+
+<h1>Lista produktów:</h1>
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Add" class="btn btn-primary btn-large">Dodaj produkt</a>
+</div>
+<br />
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => Model.productList[0].id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => Model.productList[0].name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => Model.productList[0].price)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => Model.productList[0].desc)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var p in Model.productList)
+        {
+        <tr>
+            <th scope="row">@Html.DisplayFor(m => p.id)</th>
+            <td>@Html.DisplayFor(m => p.name)</td>
+            <td>@Html.DisplayFor(m => p.price)</td>
+            <td>@Html.DisplayFor(m => p.desc)</td>
+            <td>
+                <a asp-page="/Admin/Edit" asp-route-id=@p.id>Edytuj</a> |
+                <a asp-page="/Admin/Delete" asp-route-id=@p.id>Kasuj</a> |
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<br />  <br /> <br />
+<div class="row col-sm-12">
+    <a asp-page="ShowCategory" class="btn btn-primary btn-large">Zarządzaj kategoriami</a>
+</div>

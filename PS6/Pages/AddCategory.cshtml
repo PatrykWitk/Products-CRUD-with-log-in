@@ -1,0 +1,31 @@
+﻿@page
+@model PS6.Pages.AddCategoryModel
+@{
+
+}
+<h2>Dane kategorii:</h2>
+<br />
+<br />
+<div class="container">
+    <form class="form-horizontal" method="post">
+        <div class="form-group">
+            <label asp-for="NewCategory.shortName" class="control-label col-sm-2"></label>
+            <div class="col-sm-6">
+                <input asp-for="NewCategory.shortName" class="form-control">
+                <span asp-validation-for="NewCategory.shortName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewCategory.longName" class="control-label col-sm-2"></label>
+            <div class="col-sm-6">
+                <input asp-for="NewCategory.longName" class="form-control">
+                <span asp-validation-for="NewCategory.longName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn btn-primary">Zatwierdź</button>
+            </div>
+        </div>
+    </form>
+</div>
